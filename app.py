@@ -4,11 +4,11 @@ import subprocess
 
 app = Flask(__name__)
 
-with open('sample.json') as f:
+with open('notices.json') as f:
     data = json.load(f)
 
 
 @app.route('/', methods=['GET'])
-def index():
+async def index():
     subprocess.run('python3 web.py', shell=True)
     return jsonify(data)
